@@ -9,3 +9,6 @@ run following inside project directory
 ```
 python app.py
 ```
+## Explored options:
+* https://github.com/deacondesperado/flask_mab
+* https://github.com/jpvanhal/flask-split
