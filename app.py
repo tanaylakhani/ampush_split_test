@@ -14,7 +14,7 @@ def get_utm_variant():
         else:
             Page_options_dict[variant] = 1
         variant=request.form.get('variant_type')
-        return render_template('webpage.html', variant=variant)
+        return render_template('webpage.html', variant=variant,options_dict=Page_options_dict )
     else:
         utm_id = request.args.get('utm_id')
         variant_var = None
@@ -28,13 +28,11 @@ def get_utm_variant():
                 + ['E']  * (1+Page_options_dict.get('E', 0))
         else:
             variant_var = 'Default'
-
         if not variant_var:
             length = len(choices)
             choice = randint(0, length-1)
             variant_var = choices[choice]
-    
-        return render_template('webpage.html', variant=variant_var)
+        return render_template('webpage.html', variant=variant_var,options_dict=Page_options_dict)
 
 if __name__ == "__main__":
     app.run()

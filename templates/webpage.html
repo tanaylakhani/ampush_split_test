@@ -1,14 +1,22 @@
 <!doctype html>
 <head>
-	<title>Ampush Code Challenge</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <title>Ampush Code Challenge</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-	<img id="variant_image" src="">
-	<form id="split_testing_variant" action="/" method="post" enctype="multipart/form-data">
-	<input id="variant_type" type="hidden" name="variant_type" value="{{variant}}">
-	<input id="submit" type="submit" value="TEST">
-	</form>
+    <img id="variant_image" src="">
+    <form id="split_testing_variant" action="/" method="post" enctype="multipart/form-data">
+    <input id="variant_type" type="hidden" name="variant_type" value="{{variant}}">
+    <input id="submit" type="submit" value="Buy">
+    <input type="button" value="Refresh Page" onClick="location.href = '/'">
+    </form>
+    Purchase Record
+    <dl>
+      {% for key, value in options_dict.iteritems() %}
+            <dt>{{ key }}</dt>
+            <dd>{{ value }}</dd>
+      {% endfor %}
+    </dl>
 </body>
 <script>
 $("#variant_image").attr("src", "/static/img/{{variant}}.png")
